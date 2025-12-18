@@ -4,29 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
 
-<div class="login-container">
-    <h2>Welcome Back</h2>
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-left">
+            <h2>Hello!</h2>
+            <p class="subtitle">Sign in to your account</p>
 
-    <form id="login-form">
-        <div class="form-group">
-            <input type="text" name="username" placeholder="Username" required>
+            <form id="login-form">
+
+                <div class="input-group">
+                    <span class="icon">📧</span>
+                    <input type="text" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="icon">🔒</span>
+                    <input type="password" placeholder="Password" id="password" required>
+                    <span class="toggle" id="togglePassword">👁</span>
+                </div>
+
+                <div class="options">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Sign In</button>
+            </form>
         </div>
 
-        <div class="form-group">
-            <input type="password" name="password" placeholder="Password" required>
+        <div class="auth-right">
+            <h2>Welcome Back!</h2>
+            <p>
+                Login to access your dashboard and manage your products securely.
+            </p>
         </div>
 
-        <button type="submit">Login</button>
-    </form>
-
-    <p id="login-message"></p>
+    </div>
 </div>
 
-<!-- <script src="assets/js/login.js"></script> -->
+<script>
+const toggle = document.getElementById('togglePassword');
+const password = document.getElementById('password');
+
+toggle.addEventListener('click', () => {
+    const type = password.type === 'password' ? 'text' : 'password';
+    password.type = type;
+    toggle.textContent = type === 'password' ? '👁' : '🙈';
+});
+</script>
+
 </body>
 </html>

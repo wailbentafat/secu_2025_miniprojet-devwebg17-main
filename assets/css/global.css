@@ -1,15 +1,13 @@
-/* assets/css/global.css */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: #f3f6fd;
     display: flex;
     align-items: center;
     justify-content: center;
