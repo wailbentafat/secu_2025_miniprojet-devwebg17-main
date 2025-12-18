@@ -1,4 +1,5 @@
-<?php ?>
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,8 @@
 
                 <div class="input-group">
                     <span class="icon">📧</span>
-                    <input type="text" placeholder="Email" required>
+                    <!-- Added id="username" -->
+                    <input type="text" id="username" placeholder="Email" required>
                 </div>
 
                 <div class="input-group">
@@ -28,6 +30,9 @@
                     <input type="password" placeholder="Password" id="password" required>
                     <span class="toggle" id="togglePassword">👁</span>
                 </div>
+
+                <!-- Message display -->
+                <p id="login-message"></p>
 
                 <div class="options">
                     <label>
@@ -50,16 +55,7 @@
     </div>
 </div>
 
-<script>
-const toggle = document.getElementById('togglePassword');
-const password = document.getElementById('password');
-
-toggle.addEventListener('click', () => {
-    const type = password.type === 'password' ? 'text' : 'password';
-    password.type = type;
-    toggle.textContent = type === 'password' ? '👁' : '🙈';
-});
-</script>
+<script src="assets/js/login.js"></script>
 
 </body>
 </html>
