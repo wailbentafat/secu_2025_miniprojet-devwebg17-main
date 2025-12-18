@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT  EXISTS `db`;
+CREATE DATABASE IF NOT EXISTS `db`;
 USE `db`;
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -11,22 +11,21 @@ CREATE TABLE IF NOT EXISTS `users` (
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS `items` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(150) NOT NULL,
-    `description` TEXT,
-    `price` DECIMAL(10, 2) NOT NULL, -- Use Decimal for currency, never Float
-    `image_url` VARCHAR(255),
-    `category_id` INT,
-    `stock` INT DEFAULT 0,
-    FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`) ON DELETE SET NULL
-) ENGINE=InnoDB;
-
 CREATE TABLE IF NOT EXISTS `categories` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS `items` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(150) NOT NULL,
+    `description` TEXT,
+    `price` DECIMAL(10, 2) NOT NULL,
+    `image_url` VARCHAR(255),
+    `category_id` INT,
+    `stock` INT DEFAULT 0,
+    FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `cart` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,11 +36,10 @@ CREATE TABLE IF NOT EXISTS `cart` (
     FOREIGN KEY (`item_id`) REFERENCES `items`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
-
+-- Inserts
 INSERT INTO `categories` (`name`) VALUES ('Electronics'), ('Books'), ('Clothing');
 INSERT INTO `users` (`username`, `email`, `password`, `role`) VALUES 
 ('admin_user', 'admin@shop.com', '$2y$10$e0MYzXy..hashedpassword..', 'admin');
-INSERT INTO `categories` (`name`) VALUES ('Electronics'), ('Home');
 
 INSERT INTO `items` (`name`, `description`, `price`, `image_url`, `category_id`, `stock`) VALUES 
 ('Mechanical Keyboard', 'RGB Backlit, Blue Switches.', 59.99, 'keyboard.jpg', 1, 15),
