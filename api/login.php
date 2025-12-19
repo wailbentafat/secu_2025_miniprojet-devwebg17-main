@@ -12,8 +12,8 @@ $password = $data['password'] ?? '';
 
 if ($username && $password) {
     try {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username OR email = :username");
-        $stmt->execute(['username' => $username]);
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
+        $stmt->execute(['username' => $username, 'email' => $username]);
         $user = $stmt->fetch();
 
         if ($user) {
@@ -30,7 +30,7 @@ if ($username && $password) {
             echo json_encode(['success' => false, 'message' => 'User not found']);
         }
     } catch (Exception $e) {
-        echo json_encode(['success' => false, 'message' => 'Database error']);
+        echo json_encode(['success' => false, 'message' => 'Database error', 'error' => $e->getMessage()]);
     }
 } else {
     echo json_encode(['success' => false, 'message' => 'Username and password are required']);

@@ -17,71 +17,9 @@ if ($id > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexStore | <?php echo $product ? htmlspecialchars($product['name']) : 'Product Not Found'; ?></title>
     <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/product.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <style>
-        .product-detail-container {
-            padding: 8rem 5% 5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .detail-image {
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-        }
-
-        .detail-info h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .detail-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
-
-        .detail-desc {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .stock-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .product-detail-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .detail-image {
-                height: 300px;
-                font-size: 5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
